@@ -34,7 +34,7 @@ def generate_dot_with_levels(data):
     level_nodes = defaultdict(list)
 
     for row in data:
-        level, path_name, path_type, child_paths, startup_cost, total_cost, rows, is_del, rel_name = row
+        level, path_name, path_type, child_paths, startup_cost, total_cost, rows, is_del, rel_name, indexoid = row
 
         nodes.add(path_name)
         level_nodes[int(level)].append(path_name)
@@ -45,7 +45,7 @@ def generate_dot_with_levels(data):
                     edges.add((child.strip(), path_name))
 
     for row in data:
-        level, path_name, path_type, child_paths, startup_cost, total_cost, rows, is_del, rel_name = row
+        level, path_name, path_type, child_paths, startup_cost, total_cost, rows, is_del, rel_name, indexoid = row
 
         label = (
             f"rel name: {rel_name}\\n"
